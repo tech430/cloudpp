@@ -53,6 +53,30 @@ print("tag the image your username: sudo docker tag my-java-app:release1 dilax10
 print("push the image to dockerhub: sudo docker push dilax101/myjavaapp")
 
 
+New-AzResourceGroup -Name 'myResourceGroup' -Location 'eastus'
+
+New-AzVM -ResourceGroup 'myResourceGroup' `
+    -Name 'myVM' `
+    -Location 'eastus' `
+    -Size 'Standard_B1s' `
+    -Image 'Ubuntu2204' `
+    -VirtualNetworkname 'myVnet' `
+    -SubnetName 'mySubnet' `
+    -SecurityGroupName 'myNetworkSecurityGroup' `
+    -PublicIpAddressName 'myPublicIpAddress' `
+    -OpenPorts 80,3389
+
+az vm open-port --port 22 --resource-group 19ict004Cloud --name myVM
+
+Get-AzPublicIdAddress -ResourceGroupName 19ict004Cloud | Select-object Name,IpAddress
+
+Get-AzVM -ResourceGroupName 19ict004Cloud -Name myVM -Status
+
+shell: Remove-AzResourceGroupName -Name 19ict004Cloud
+
+bash: az group delete --name myResourceGroup
+
+
 
 
 
