@@ -40,6 +40,7 @@ print("run the container in back: sudo docker run -d -it --name [container_name]
 print("goto inside the image: sudo docker exec -it webpage1 /bin/bash"+"list bin commands: ls -lrt")
 print("backup the image: sudo docker save [image_id / image_name] >sujah.tar")
 print("load the backup tar file: sudo docker load -i sujah.tar")
+print("commit container: sudo docker commit ubuntu-dev release7:1.3")
 
 #docker build image
 print("create java file and implement the code")
